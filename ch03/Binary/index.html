@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이진수 변환기</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>이진수 변환기</h1>
+        <div class="checkboxes">
+            <label><input type="checkbox" id="bit7"> 128</label>
+            <label><input type="checkbox" id="bit6"> 64</label>
+            <label><input type="checkbox" id="bit5"> 32</label>
+            <label><input type="checkbox" id="bit4"> 16</label>
+            <label><input type="checkbox" id="bit3"> 8</label>
+            <label><input type="checkbox" id="bit2"> 4</label>
+            <label><input type="checkbox" id="bit1"> 2</label>
+            <label><input type="checkbox" id="bit0"> 1</label>
+        </div>
+        <button id="convertBtn">변환</button>
+        <div class="result">
+            <p>10진수 값: <span id="decimalResult">0</span></p>
+            <p>16진수 값: <span id="hexResult">0</span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
