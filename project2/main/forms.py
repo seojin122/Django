@@ -7,11 +7,11 @@ class StudentForm(forms.ModelForm):
         fields = ['name', 'department', 'student_id']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '이름을 입력하세요'}),
-            'department': forms.TextInput(attrs={'class': 'form-control'}),
-            'student_id': forms.NumberInput(attrs={'class': 'form-control'}),
+            'department': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '학과을 입력하세요'}),
+            'student_id': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': '학번을 입력하세요'}),
         }
         labels = {
-            'name': '학생 이름',
+            'name': '이름',
             'department': '학과',
             'student_id': '학번',
         }
