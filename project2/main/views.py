@@ -3,10 +3,6 @@ from django.http import *
 from . import models
 from . import forms
 
-def home(request):
-    return HttpResponse("Hello from main!")
-
-
 def index(request):
     students = models.Student.objects.all()
     return render(request,'main/index.html',{'students':students})
@@ -14,10 +10,11 @@ def add(request):
     if request.method == 'GET':
         form = forms.StudentForm()
         return render(request,'main/add.html',{'form':form})
-    if request.method == 'POST':
+    elif request.method == 'POST':
         form = forms.StudentForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(index)
+            return redirect("main:students_list")
+        return render(request, 'main/add.html', {'form': form}, status=400)
     else:
         return HttpResponseNotAllowed('Method not allowed')

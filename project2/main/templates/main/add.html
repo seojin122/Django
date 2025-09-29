@@ -5,10 +5,10 @@
         <title>학생 입력</title>
     </head>
     <body>
-    <h2>학생 정보 입력</h2>
+        <h2>학생 정보 입력</h2>
         <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
+            {% csrf_token %}
+            {{ form.as_p }}
         <button type="submit">등록</button>
-    </form>
+        </form>
     </body>

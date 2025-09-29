@@ -1,21 +1,27 @@
 <body>
-    <h2>등록된 학생 목록</h2>
-    <table>
-    <tr>
-        <th>이름</th>
-        <th>학과</th>
-        <th>학번</th>
-    </tr>
-    {% for s in students %}
-    <tr>
-        <td>{{ s.name }}</td>
-        <td>{{ s.department }}</td>
-        <td>{{ s.student_id }}</td>
-    </tr>
-    {% empty %}
-    <tr>
-        <td colspan="3">No Data</td>
-    </tr>
-    {% endfor %}
-    </table>
+    <div class="container mt-5">
+        <h2 class="mb-4">📋 등록된 학생 목록</h2>
+        <table class="table table-striped table-bordered text-center align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>이름</th>
+                    <th>학과</th>
+                    <th>학번</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in students %}
+                <tr>
+                    <td>{{ s.name }}</td>
+                    <td>{{ s.department }}</td>
+                    <td>{{ s.student_id }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="3">등록된 학생이 없습니다.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>

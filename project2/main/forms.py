@@ -7,7 +7,7 @@ class StudentForm(forms.ModelForm):
         fields = ['name', 'department', 'student_id']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '이름을 입력하세요'}),
-            'department': forms.Select(attrs={'class': 'form-select'}),
+            'department': forms.TextInput(attrs={'class': 'form-control'}),
             'student_id': forms.NumberInput(attrs={'class': 'form-control'}),
         }
         labels = {
