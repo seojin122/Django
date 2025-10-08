@@ -1,24 +1,19 @@
 from django.shortcuts import render, redirect
-from django.http import *
-from . import models
-from . import forms
+from django.http import HttpResponseBadRequest, HttpResponseNotAllowed
+from . import models, forms
 
 def index(request):
-    if request.method == 'GET':
-        students = models.Student.objects.all()
-        form = forms.StudentForm()
-        return render(request,'main/index.html',{'students':students, 'form':form})
-    elif request.method == 'POST':
+    students = models.Student.objects.all()
+    return render(request, 'main/index.html', {'students': students})
+
+def add(request):
+    if request.method == 'POST':
         form = forms.StudentForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("main:students_list")
+            return redirect('main:student_index')  
         else:
-            return HttpResponseBadRequest('Bad Request')
+            return HttpResponseBadRequest('입력값이 올바르지 않습니다.')
     else:
-        return HttpResponseNotAllowed("Method not allowed")
-
-
-def add(request):
-    form = forms.StudentForm()
-    return render(request,'main/add.html',{'form':form})
+        form = forms.StudentForm()
+    return render(request, 'main/add.html', {'form': form})

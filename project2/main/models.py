@@ -5,6 +5,8 @@ class Student(models.Model):
     department = models.CharField(max_length=100, blank=True)
     student_id = models.CharField(max_length=20, unique=True)  
 
+    class Meta:
+            ordering = ['-id']  # 최신이 위로
 
     def __str__(self):
         return f"{self.name} ({self.student_id}) - {self.department}"
